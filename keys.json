@@ -67,7 +67,9 @@
     "ctrl-shift-c": "terminal.copy",
     "ctrl-shift-v": "terminal.paste",
     "ctrl-shift-f": "terminal.search",
-    "ctrl-v": "terminal.paste_image",
+    "ctrl-c": "terminal.copy",
+    "ctrl-v": "terminal.paste",
+    "ctrl-f": "terminal.search",
     "ctrl-insert": "terminal.copy",
     "shift-insert": "terminal.paste"
   },

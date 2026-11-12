@@ -10,7 +10,10 @@ mkdir -p "$dir"
 input=$(cat 2>/dev/null)
 sid=$(printf '%s' "$input" | sed -n 's/.*"session_id" *: *"\([0-9A-Za-z-]*\)".*/\1/p' | head -n 1)
 reason=$(printf '%s' "$input" | sed -n 's/.*"reason" *: *"\([^"]*\)".*/\1/p' | head -n 1)
-printf '%s %s %s state=%s reason=%s\n' "$(date +%FT%T)" "$HC_TERMINAL_ID" "$sid" "$state" "$reason" >> "$dir/hook.log"
+ntype=$(printf '%s' "$input" | sed -n 's/.*"notification_type" *: *"\([^"]*\)".*/\1/p' | head -n 1)
+printf '%s %s %s state=%s reason=%s ntype=%s\n' "$(date +%FT%T)" "$HC_TERMINAL_ID" "$sid" "$state" "$reason" "$ntype" >> "$dir/hook.log"
+# Claude's idle reminder ("waiting for your input", ~60s after it finished) is not a request for the user: keep done/idle.
+[ "$state" = blocked ] && [ "$ntype" = idle_prompt ] && exit 0
 if [ "$state" = end ]; then
   # Only an explicit end (/exit, /clear, logout) clears the record. A shutdown or
   # crash keeps it, so the session can be resumed.

@@ -3,11 +3,15 @@ import { View, div, svg } from "gpui-kit";
 import { v_flex, h_flex, Editor, EditorState } from "gpui-base";
 import { run, shared, setShared, spaces, panes, focused, exec, readTextFile, watchFolder, theme, settings, window } from "herdr";
 
+// Last folder a pane reported, per space: when a tab switch reports none, keep it instead of falling back to the space folder (home).
+const lastCwd = new Map();
 function location() {
   const space = spaces().find(s => s.active), f = focused();
   const pane = f?.pane ? panes().find(p => p.pane === f.pane) : null;
   const on = f?.pane === null ? (f.terminal?.includes("/") ? f.terminal.split("/")[0] : null) : space?.machine ?? null;
-  return { cwd: pane?.cwd || f?.cwd || space?.folder, on, space: space?.id };
+  const reported = pane?.cwd || f?.cwd;
+  if (reported) lastCwd.set(space?.id, reported);
+  return { cwd: reported || lastCwd.get(space?.id) || space?.folder, on, space: space?.id };
 }
 const key = () => JSON.stringify(location());
 const LANG = { ts: "js", tsx: "js", mts: "js", cts: "js", jsx: "js", mjs: "js", toml: "yaml", jsonc: "json", svelte: "html", vue: "html" };
