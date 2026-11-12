@@ -1,6 +1,6 @@
-# herdr-split-workspace-setup
+# herdr-code-editor
 
-A Herdr split-workspace setup: file tree + file viewer + spaces tree + tab bar mods, a layout using them, key bindings, and Claude Code status hooks.
+A code-editor-style setup for Herdr (an agentic code editor cockpit): file tree + file viewer + spaces tree + tab bar mods, a layout using them, key bindings, and Claude Code status hooks.
 
 ## Contents
 
@@ -21,7 +21,7 @@ Generated files (`gpui-kit.d.ts`, `jsconfig.json`) are omitted; Herdr regenerate
 ## Install
 
 ```sh
-git clone <this repo> && cd herdr-split-workspace-setup
+git clone <this repo> && cd herdr-code-editor
 ./install.sh                      # mods + layout only
 ./install.sh --with-keys --with-settings --with-claude-hook
 ```
