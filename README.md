@@ -1,6 +1,6 @@
-# herdr-config
+# herdr-split-workspace-setup
 
-Shared Herdr app customisations: mods, a layout, key bindings and a Claude Code status hook.
+A Herdr split-workspace setup: file tree + file viewer + spaces tree + tab bar mods, a layout using them, key bindings, and Claude Code status hooks.
 
 ## Contents
 
@@ -21,7 +21,7 @@ Generated files (`gpui-kit.d.ts`, `jsconfig.json`) are omitted; Herdr regenerate
 ## Install
 
 ```sh
-git clone <this repo> && cd herdr-config
+git clone <this repo> && cd herdr-split-workspace-setup
 ./install.sh                      # mods + layout only
 ./install.sh --with-keys --with-settings --with-claude-hook
 ```
