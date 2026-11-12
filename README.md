@@ -1,6 +1,6 @@
 # herdr-config
 
-Shared [Herdr](https://github.com/) app customisations: mods, a layout, key bindings and a Claude Code status hook.
+Shared Herdr app customisations: mods, a layout, key bindings and a Claude Code status hook.
 
 ## Contents
 
