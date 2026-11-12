@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "SessionStart":     [{ "hooks": [{ "type": "command", "command": "$HOME/.claude/hooks/herdr-status.sh idle" }] }],
+    "UserPromptSubmit": [{ "hooks": [{ "type": "command", "command": "$HOME/.claude/hooks/herdr-status.sh working" }] }],
+    "Notification":     [{ "hooks": [{ "type": "command", "command": "$HOME/.claude/hooks/herdr-status.sh blocked" }] }],
+    "Stop":             [{ "hooks": [{ "type": "command", "command": "$HOME/.claude/hooks/herdr-status.sh done" }] }],
+    "SessionEnd":       [{ "hooks": [{ "type": "command", "command": "$HOME/.claude/hooks/herdr-status.sh end" }] }]
+  }
+}
