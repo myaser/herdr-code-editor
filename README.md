@@ -8,6 +8,7 @@ A code-editor-style setup for Herdr (an agentic code editor cockpit): file tree 
 |---|---|
 | `mods/file-viewer` | File viewer/editor panel (save, find, wrap toggle) |
 | `mods/files-split` | Files tree panel, cloned from `files` for the split layout |
+| `mods/changes-multi` | Changes panel for several repos: one collapsible row per git repo (with changes) one level below the folder, expanding to a green/red diff; shows a single repo as before |
 | `mods/spaces-tree` | Spaces sidebar rendered as a tree (cloned from `spaces`) |
 | `mods/tabs-split` | Tab bar with window controls (cloned from `tabs`) |
 | `layouts/main-split.json` | Layout using the mods above (cloned from `main` 0.1.14) |
